@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>C#快速入门</title>
+      <link href="/2021/11/29/c-kuai-su-ru-men/"/>
+      <url>/2021/11/29/c-kuai-su-ru-men/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1、C-中类的创建"><a href="#1、C-中类的创建" class="headerlink" title="1、C#中类的创建"></a>1、C#中类的创建</h1><pre><code>partial class Human&#123;   public const int MaxAge=200;   public static bool canFly=false;   int age;   public string name; //一个引用   public Human()&#123;  //无参构造       this.age=16;       name=&#39;&#39;;   &#125;   public Human(string name,int age)&#123;       this.name=name;       this.age=age;   &#125;   public Setage(int age)&#123;   //set and get 方法和java类似       this.age=age;   &#125;&#125;</code></pre><p> 创建对象<br> Human human=new Human(); //实例对象<br> human.Setage(18); //实例方法用引用.去调用 </p><h1 id="2、继承"><a href="#2、继承" class="headerlink" title="2、继承"></a>2、继承</h1><p> 概念：Class B:A{} 类型B继承类型A<br> A叫做父类，B叫做子类<br> B从A中继承：属性和方法<br> Override:给个机会给子类去实现<br> Protect:子类能访问，外面的不能访问  </p><p>Struct默认继承Object,class如果没有明确指出继承谁，那就是继承Object<br>Interface:声明是一个接口，不实现方法，只提供方法长什么样。 </p><pre><code>public interface Update&#123;    void Update();  //只声明方法 没有方法体     &#125;public abstract partial class Actor:Update&#123;    public void Updata()&#123;        power+=1;    &#125;    &#125;</code></pre><p>  Abstract:不能实例化，可以暂时不实现接口，等待子类的实现。<br>  父类可以存储紫萼里的变量地址，但不能反过来</p><h1 id="3、Object"><a href="#3、Object" class="headerlink" title="3、Object"></a>3、Object</h1><p>  所有类的基类都是System.Object<br>   其中有equals（）和toString（） 要重写  </p><h1 id="4、泛型"><a href="#4、泛型" class="headerlink" title="4、泛型"></a>4、泛型</h1><p>   泛型的定义：&lt;&gt;<br>   泛型的约束<br>    - new()要求有默认的构造函数，可以调用new T()<br>    -class要求是class,可以设置为null </p><h1 id="5、容器"><a href="#5、容器" class="headerlink" title="5、容器"></a>5、容器</h1><h2 id="5-1、List动态数组"><a href="#5-1、List动态数组" class="headerlink" title="5.1、List动态数组"></a>5.1、List动态数组</h2><pre><code>var lst=new List&lt;int&gt;()&#123; 3,4,5 &#125;;</code></pre><h2 id="5-2、Dictionary-使用Key来获取value"><a href="#5-2、Dictionary-使用Key来获取value" class="headerlink" title="5.2、Dictionary 使用Key来获取value"></a>5.2、Dictionary 使用Key来获取value</h2><pre><code> var dict=new Dictionary&lt;int,Sting&gt;&#123;     &#123;3, &quot;_3&quot;&#125;,     &#123;5,&quot;_5&quot;&#125;,      &#125;;  </code></pre><h2 id="5-3、HashSet-保证里面的元素的唯一性"><a href="#5-3、HashSet-保证里面的元素的唯一性" class="headerlink" title="5.3、HashSet 保证里面的元素的唯一性"></a>5.3、HashSet 保证里面的元素的唯一性</h2><pre><code>  var set=new HashSet&lt;int&gt;()&#123;          3,4,5    &#125;;    Add()和Remove()方法 先查询，有的话添加会失败，保证不重复    </code></pre><h2 id="5-4、Queue-可动态增长，-先进先出-队列"><a href="#5-4、Queue-可动态增长，-先进先出-队列" class="headerlink" title="5.4、Queue 可动态增长， 先进先出  队列"></a>5.4、Queue 可动态增长， 先进先出  队列</h2><p>  Enqueue Dequeue  </p><h2 id="5-5、Stack-可动态增-后进先出-栈"><a href="#5-5、Stack-可动态增-后进先出-栈" class="headerlink" title="5.5、Stack 可动态增 后进先出 栈"></a>5.5、Stack 可动态增 后进先出 栈</h2><h1 id="6、属性-Attribute"><a href="#6、属性-Attribute" class="headerlink" title="6、属性 Attribute"></a>6、属性 Attribute</h1><p>  Attrution:可以给函数 变量 类型等添加额外的用户自定义的信息，方便对语言扩展<br>  配合反射来用  </p><h1 id="7、反射：获取带啊吗信息，可以获取哟个程序集，类，函数，变量等信息，使用Object-GetType-或者typeof-T-来获取类型信息"><a href="#7、反射：获取带啊吗信息，可以获取哟个程序集，类，函数，变量等信息，使用Object-GetType-或者typeof-T-来获取类型信息" class="headerlink" title="7、反射：获取带啊吗信息，可以获取哟个程序集，类，函数，变量等信息，使用Object.GetType()或者typeof(T)来获取类型信息"></a>7、反射：获取带啊吗信息，可以获取哟个程序集，类，函数，变量等信息，使用Object.GetType()或者typeof(T)来获取类型信息</h1><h1 id="8、宏：条件编译，通过定义宏来切换代码开关"><a href="#8、宏：条件编译，通过定义宏来切换代码开关" class="headerlink" title="8、宏：条件编译，通过定义宏来切换代码开关"></a>8、宏：条件编译，通过定义宏来切换代码开关</h1><pre><code>#if #else #endif #define #undef</code></pre><h1 id="9、异常"><a href="#9、异常" class="headerlink" title="9、异常"></a>9、异常</h1><p>   代码执行过程中可能会抛出异常<br>   -NullReferenceException<br>    不捕获将会导致程序退出结束  </p><h2 id="9-1、第一种解决方法"><a href="#9-1、第一种解决方法" class="headerlink" title="9.1、第一种解决方法:"></a>9.1、第一种解决方法:</h2><pre><code>```try&#123;    //将，要执行的代码放这里 如果代码执行出现错误 将会被捕获 确保程序的安全&#125;catch（NullReferenceException e）&#123;  Console.writeLine(e.ToString());  //捕获异常 对异常进行处理    &#125;```</code></pre><h2 id="9-2、第二三种解决方法："><a href="#9-2、第二三种解决方法：" class="headerlink" title="9.2、第二三种解决方法："></a>9.2、第二三种解决方法：</h2><pre><code>``` throw; //自己不想解决的话，用这个代表抛出给调用者 throw new Exception(&quot;Msg&quot;); //直接new一个对象抛出去也行 finally &#123;/*一定执行的语句 不管有没有异常都会执行*/&#125;  try&#123;    //将，要执行的代码放这里 如果代码执行出现错误 将会被捕获 确保程序的安全&#125;catch（NullReferenceException e）&#123; throw; //抛给调用者处理     &#125;finally&#123;    //这里面的代码一定会执行 不管有没有异常都会 业务需要的时候用&#125;```</code></pre><h1 id="10、类型拓展"><a href="#10、类型拓展" class="headerlink" title="10、类型拓展"></a>10、类型拓展</h1><p>   可以拓展一些无法修改源代码的类型  </p><p>   增加额外的接口，方便用户使用  </p><p>   必须是静态类 且必须是静态方法  </p><p>   函数参数前面使用this关键字  </p><pre><code> public static class TestFloatExt&#123;     public static int ToInt(this float val)&#123;         return (int)val;     &#125;      &#125;  float valFloat=1.5f; int valInt=valFloat.ToInt(); </code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> C# </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2021/11/23/hello-world/"/>
+      <url>/2021/11/23/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
